@@ -64,6 +64,12 @@ final boolean DEBUG = false;
 			
 			if(rscol.next())
 				num = rscol.getInt("num_preguntas");
+			else
+			{
+				try{conn.close();} catch (Exception e){}
+				return;
+				//num = 0;
+			}
 			
 			//out.println("<table class = \"centered\" style = \"width: 100%; height: 100%\"><tr style = \"height: 15%\"><td style = \"width:25%\"></td><td style = \"width: 50%\"></td><td style = \"width:25%\"></td></tr><tr style = \"height: 70%\"><td style = \"width:25%\"></td><td style = \"width: 50%\">");
 			out.println("<div position=\"absolute\" valign=\"middle\" style=\"top: 20%\">");
@@ -228,6 +234,12 @@ final boolean DEBUG = false;
 				
 				if(rscol.next())
 					nume = rscol.getInt("num_preguntas");
+				else
+				{
+					try{conn.close();} catch (Exception e){}
+					return;
+					//num = 0;
+				}
 				
 				//out.println("<table class = \"centered\" style = \"width: 100%; height: 100%\"><tr style = \"height: 15%\"><td style = \"width:25%\"></td><td style = \"width: 50%\"></td><td style = \"width:25%\"></td></tr><tr style = \"height: 70%\"><td style = \"width:25%\"></td><td style = \"width: 50%\">");
 

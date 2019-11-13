@@ -22,14 +22,16 @@
 	String inp = null;
 	inp = request.getParameter("inp") == null ? "": request.getParameter("inp");
 	
-	if (inp == null || inp == "")
-	{
-		try{conn.close();}catch (Exception e){}
-		return;
-	}
-	
 	String servidor = "http://" + request.getServerName()+ ":" + request.getServerPort()+ "/concurso/";
 	String pagina = "alumnos.jsp";
+	
+	if (inp == null || inp == "" || inp == " " || inp == "  ")
+	{
+		try{conn.close();}catch (Exception e){}
+		response.sendRedirect(servidor+pagina);
+	}
+	else
+	{
 	
 	try
 	{
@@ -54,5 +56,6 @@
 	{
 		try{stmt.close();} catch(Exception e){}
 		try{conn.close();} catch(Exception e){}
+	}
 	}
 %>
