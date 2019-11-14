@@ -1,3 +1,22 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link href="css/principal.css" rel="stylesheet" type="text/css" />
+    <link href="css/principal.css" rel="stylesheet" type="text/css" />
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="css/bootstrap-grid.css" rel="stylesheet" type="text/css" />
+    <link href="css/bootstrap-reboot.min.css" rel="stylesheet" type="text/css" />
+    <link href="css/bootstrap-grid.min.css" rel="stylesheet" type="text/css" />
+    <link href="css/bootstrap-reboot.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="css/CACSS.css">
+    <title>Concurso académico | Administrador</title>
+</head>
+<body>
+
 <%@page import="java.sql.*"%>
 <%
 	//String db = request.getParameter("db");
@@ -54,7 +73,7 @@
 			
 			sesion.setAttribute("reid", reid);
 			
-			out.println("<!-- Cuadro de pregunta --> <div type=\"text\" id=\"pregunta\" style=\"position: absolute;width: 26%;height: 40%;left: 36.5%;top: 37%;background: #E0E0E0;border: 3px solid #009945;box-sizing: border-box; font-family: Roboto Slab;font-style: normal;font-weight: normal;font-size: 15px;line-height: 106px;\">" + qs + "</div><h1 style=\"position:absolute;width: 1004px;height: 106px;left: 44%;top: 26%;font-family: Roboto Slab;font-style: normal;font-weight: normal;font-size: 38px;line-height: 106px;opacity: 0.5;\">Pregunta</h1><!-- Cuadro respuesta alumno --><div type=\"text\" id=\"ra\" style=\"position: absolute;width: 26%;height: 12%;left: 65.8%;top: 65%;background:#E0E0E0;border: 3px solid #009945;box-sizing: border-box; font-family: Roboto Slab;font-style: normal;font-weight: normal;font-size: 15px;line-height: 106px;\">" + reAl + "</div><h1 style=\"position:absolute;width: 25%;height: 11%;left: 69%;top: 72.5%;font-family: Roboto Slab;font-style: normal;font-weight: normal;font-size: 38px;line-height: 106px;opacity: 0.5;\">Respuesta alumno</h1><!-- Cuadro respuesta correcta --><div type=\"text\" id=\"rc\" style=\"position: absolute;width: 26%;height: 12%;left: 7%;top: 65%;background: #E0E0E0;border: 3px solid #009945;box-sizing: border-box; font-family: Roboto Slab;font-style: normal;font-weight: normal;font-size: 15px;line-height: 106px;\">" + re + "</div><h1 style=\"position:absolute;width: 1004px;height: 106px;left: 9%;top: 72.5%;font-family: Roboto Slab;font-style: normal;font-weight: normal;font-size: 38px;line-height: 106px;opacity: 0.5;\">Respuesta correcta</h1><!-- Cuadro username --><div type=\"text\" id=\"us\" style=\"position: absolute;width: 8%;height: 12%;left: 25%;top: 50%;background: #E0E0E0;border: 3px solid #009945;box-sizing: border-box; font-family: Roboto Slab;font-style: normal;font-weight: normal;font-size: 15px;line-height: 106px;\">" + userna + "</div><h1 style=\"position:absolute;width: 1004px;height: 106px;left: 25%;top: 39%;font-family: Roboto Slab;font-style: normal;font-weight: normal;font-size: 38px;line-height: 106px;opacity: 0.5;\">Grupo</h1>");
+		out.println("<!-- Cuadro de pregunta --><div type=\"text\" id=\"pregunta\" class=\"maestrosBrowsePreg\" style= \"left: 36.5%;top: 37%;\">" + qs + "</div><h1 class=\"maestrosBrowsePreg\" style= \"left: 44%;top: 26%;\">Pregunta</h1><!-- Cuadro respuesta alumno --><div type= \"text \" id= \"ra \" class=\"maestrosBrowseResAl\" style= \"left: 65.8%;top: 65%;\">" + reAl + "</div><h1 class=\"maestrosBrowseResAl\" style= \"left: 69%;top: 72.5%;\">Respuesta alumno</h1><!-- Cuadro respuesta correcta --><div type= \"text \" id= \"rc \" class=\"maestrosBrowseResCo\" style= \" left: 7%;top: 65%;\">" + re + "</div><h1 class=\"maestrosBrowseResCo\" style= \"left: 9%;top: 72.5%;\">Respuesta correcta</h1><!-- Cuadro username --><div type= \"text \" id= \"us \" class=\"maestrosBrowseGrupo\" style= \"left: 25%;top: 50%;\">" + userna + "</div><h1 class=\"maestrosBrowseGrupo\" style= \"left: 25%;top: 39%;\">Grupo</h1>");
 		}
 				
 		rs.close();
@@ -71,3 +90,6 @@
 		try{conn.close();} catch(Exception e){}
 	}
 %>
+
+</body>
+</html>

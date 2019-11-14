@@ -3,13 +3,20 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
    <head>
-       <title>Concurso academico</title>
+      <title>Concurso academico</title>
+      <link href="css/principal.css" rel="stylesheet" type="text/css" />
+      <link href="css/principal.css" rel="stylesheet" type="text/css" />
+      <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
+      <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+      <link href="css/bootstrap-grid.css" rel="stylesheet" type="text/css" />
+      <link href="css/bootstrap-reboot.min.css" rel="stylesheet" type="text/css" />
+      <link href="css/bootstrap-grid.min.css" rel="stylesheet" type="text/css" />
+      <link href="css/bootstrap-reboot.css" rel="stylesheet" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="css/CACSS.css">
    </head> 
    <body>
-    <!-- Barra superior -->
-		<div style="position: absolute;width: 100%;height: 15%;background: #009945;mix-blend-mode: normal;">
-			<h1 style="position:absolute;width: 1004px;height: 106px;left: 30px;top: -55px;font-family: Roboto Slab;font-style: normal;font-weight: normal;font-size: 80px;line-height: 106px;color: #FFFFFF;">Concurso Académico 2K19</h1>
-		</div>
+    	<!-- Barra superior -->
+		<header>Concurso Académico 2019</header>
 
     <!-- Div -->
     <div>
@@ -17,9 +24,8 @@
 <% //@ include file="Database.jsp" %>
 <%
 final boolean DEBUG = false;
-
 	//String db = request.getParameter("db");
-	String db = "concurso";
+	String db 		= "concurso";
 	String user 	= "USER2";
 	String passwd	= "CAUser";
 	
@@ -27,11 +33,11 @@ final boolean DEBUG = false;
 	Statement stmt	= null;
 	ResultSet rs	= null;
 	
-	String sql = null;
-	String prnt = "<br/>Usuario o contraseña incorrectos";
-	int t = 0;
-	int id = 0;
-	String us = null;
+	String sql 		= null;
+	String prnt 	= "<br/>Usuario o contraseña incorrectos";
+	int t 			= 0;
+	int id 			= 0;
+	String us 		= null;
 	String pw = null;
 	
 	us = request.getParameter("us") == null ? "": request.getParameter("us");
@@ -46,19 +52,19 @@ final boolean DEBUG = false;
 		
 		stmt = conn.createStatement();
 		
-		sql = "SELECT tipo_id, user_id FROM usuarios WHERE username ='" + us + "' AND passwd ='" + pw + "'";
+		sql  = "SELECT tipo_id, user_id FROM usuarios WHERE username ='" + us + "' AND passwd ='" + pw + "'";
 		
-		rs = stmt.executeQuery(sql);
+		rs   = stmt.executeQuery(sql);
 		
 		if (rs.next())
 		{
-			t = rs.getInt("tipo_id");
+			t  = rs.getInt("tipo_id");
 			id = rs.getInt("user_id");
 			sesion.setAttribute("idr", id);
 			sesion.setAttribute("tr",t);
 		}
 		String servidor = "http://" + request.getServerName()+ ":" + request.getServerPort()+ "/concurso/";
-		String pagina = null;
+		String pagina 	= null;
 		
 		try{conn.close();}catch(Exception e){}
 		
@@ -78,7 +84,7 @@ final boolean DEBUG = false;
 			    response.sendRedirect(servidor + pagina);
 				break;
 			default:
-				out.println("<br/><button type= \"button\" style = \" position: absolute;width: 22%;height: 8%; top: 46%; left: 39%;background: #C4C4C4; border: 3px solid #009945;mix-blend-mode: normal;font-family:Roboto Slab;font-style: normal;font-size: 20px;\" href=\"#\" onclick=\"javascript:window.history.back();\"> " + prnt + " volver</a>");
+				out.println("<br/><button type= \"button\" class = \"btn btn-outline-success\" style = \"position: absolute;width: 22%;height: 8%; top: 46%; left: 39%;font-family:Roboto Slab;font-style: normal;font-size: 1.25em;\" href=\"#\" onclick=\"javascript:window.history.back();\"> " + prnt + " volver</a>");
 				break;
 		}
 					
@@ -99,9 +105,7 @@ final boolean DEBUG = false;
 
     </div>
 
-    <!-- Barra inferior -->
-		<div style="position: absolute;width: 100%;height: 15%;top: 88.89%;background: #009945;mix-blend-mode: normal;">
-           <h1 style="position:absolute;width: 1004px;height: 106px;align = left;top: -50px;font-family: Roboto Slab;font-style: normal;font-weight: normal;font-size: 60px;line-height: 106px;color: #FFFFFF;">Ingenierías XXVIII</h1>
-		</div>
+    	<!-- Barra inferior -->
+		<footer>Ingenierías XXVIII</footer>
 	</body>
 </html>

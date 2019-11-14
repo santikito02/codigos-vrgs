@@ -1,3 +1,22 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link href="css/principal.css" rel="stylesheet" type="text/css" />
+    <link href="css/principal.css" rel="stylesheet" type="text/css" />
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="css/bootstrap-grid.css" rel="stylesheet" type="text/css" />
+    <link href="css/bootstrap-reboot.min.css" rel="stylesheet" type="text/css" />
+    <link href="css/bootstrap-grid.min.css" rel="stylesheet" type="text/css" />
+    <link href="css/bootstrap-reboot.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="css/CACSS.css">
+    <title>Concurso académico | Administrador</title>
+</head>
+<body>
+
 <%@page import="java.sql.*"%>
 <%
 final boolean DEBUG = false;
@@ -22,8 +41,8 @@ final boolean DEBUG = false;
 	Integer idre 	= null;
 	
 	HttpSession sesion = request.getSession();
-	Integer id	= (Integer)sesion.getAttribute("idr");
-	Integer t = (Integer)sesion.getAttribute("tr");
+	Integer id		   = (Integer)sesion.getAttribute("idr");
+	Integer t 		   = (Integer)sesion.getAttribute("tr");
 	
 	if (DEBUG) System.out.println("id [" + id + "]");
 	if (DEBUG) System.out.println("t [" + t + "]");
@@ -51,18 +70,18 @@ final boolean DEBUG = false;
 			qst = rs.getString("pregunta");
 			idre = rs.getInt("respuesta_id");
 			sesion.setAttribute("idre", idre);
-			out.println("<!-- Cuadro de pregunta --> <div type=\"Texto\" style=\"position: absolute;width: 600px;height: 150px;left: 375px;top: 200px;background: #E0E0E0;border: 3px solid #009945;box-sizing: border-box;\">" + qst + " </div>");
+			out.println("<!-- Cuadro de pregunta --> <div type=\"Texto\" class=\"alumnosBrowse\">" + qst + " </div>");
 			out.println("<input type=\"hidden\" id=\"isCuadroRespVisible\" name=\"isCuadroRespVisible\" value=\"1\">");
 		}
 		else if(t==1)
 		{
 			if (DEBUG) System.out.println("Query no regresa resultados");
 			
-			String i = null;
-			String us = null;
-			Integer cal = null;
-			Integer cont = null;
-			Integer num = null;
+			String i 		= null;
+			String us 		= null;
+			Integer cal 	= null;
+			Integer cont 	= null;
+			Integer num 	= null;
 			
 			String sqlus = "SELECT * FROM usuarios u, user_round ru, ronda r WHERE u.user_id = ru.user_id AND ru.ronda_id = r.ronda_id AND u.tipo_id = '" + t + "' AND r.activa = 1 ORDER BY u.username";
 			
@@ -146,7 +165,6 @@ final boolean DEBUG = false;
 					if(DEBUG) System.out.println("cal [" + cal + "]");
 					
 					{ //Imprime Calificacion
-
 						if(cal == 0)
 						{
 							out.println("				<div> <img src = \"amarillo.png\" style=\"position: absolute;width: 2%;height: 3.5%;\"> </div>");
@@ -181,21 +199,21 @@ final boolean DEBUG = false;
 				
 				conn	= null;
 				stmt	= null;
-				stmt2 = null;
-				stmt3 = null;
-				stmt4 = null;
-				ResultSet rsfilg= null;
-				rscol = null;
-				rscal = null;
+				stmt2 	= null;
+				stmt3 	= null;
+				stmt4 	= null;
+				ResultSet rsfilg = null;
+				rscol 	= null;
+				rscal 	= null;
 				
 				
-				sql 		= null;
-				qst 		= null;
+				sql 	= null;
+				qst 	= null;
 				idre 	= null;
 				
-				sesion = request.getSession();
-				id	= (Integer)sesion.getAttribute("idr");
-				t = 2;
+				sesion  = request.getSession();
+				id	    = (Integer)sesion.getAttribute("idr");
+				t 	    = 2;
 				
 				if (DEBUG) System.out.println("id [" + id + "]");
 				if (DEBUG) System.out.println("t [" + t + "]");
@@ -236,10 +254,8 @@ final boolean DEBUG = false;
 							try{conn.close();} catch (Exception e){}
 							return;	
 						}
-
 						out.println("<br><br><br><br><br><br><br><br>");
 						//out.println("<table class = \"centered\" style = \"width: 100%; height: 100%\"><tr style = \"height: 15%\"><td style = \"width:25%\"></td><td style = \"width: 50%\"></td><td style = \"width:25%\"></td></tr><tr style = \"height: 70%\"><td style = \"width:25%\"></td><td style = \"width: 50%\">");
-
 						out.println("	<table class=\"table table-striped table-sm\" position=\"relative\" style=\"top: 0;bottom: 0;left: 0;right: 0;width: 50%;height: 30%;margin: auto\">");
 						out.println("		<thead class=\"thead-light\">");
 						out.println("			<tr>");
@@ -368,3 +384,6 @@ final boolean DEBUG = false;
 		try{conn.close();} catch(Exception e){}
 	}
 %>
+
+</body>
+</html>

@@ -21,6 +21,7 @@
 	
 	String inp = null;
 	inp = request.getParameter("inp") == null ? "": request.getParameter("inp");
+	inp = inp.trim();
 	
 	String servidor = "http://" + request.getServerName()+ ":" + request.getServerPort()+ "/concurso/";
 	String pagina = "alumnos.jsp";
