@@ -12,7 +12,7 @@
 	Statement stmt	= null;
 	
 	String sql = null;
-	Format f 		= new SimpleDateFormat("hh:mm:ss");
+	Format f 		= new SimpleDateFormat("HH:mm:ss");
 	String sthr 	= f.format(new Date());
 	
 	HttpSession sesion = request.getSession();
@@ -22,6 +22,7 @@
 	String inp = null;
 	inp = request.getParameter("inp") == null ? "": request.getParameter("inp");
 	inp = inp.trim();
+	inp = inp.toUpperCase();
 	
 	String servidor = "http://" + request.getServerName()+ ":" + request.getServerPort()+ "/concurso/";
 	String pagina = "alumnos.jsp";

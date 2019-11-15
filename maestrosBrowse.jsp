@@ -70,6 +70,7 @@
 			reAl = rs.getString("resp_al");
 			reid = rs.getInt("respuesta_id");
 			userna = rs.getString("username");
+			re = re.toUpperCase();
 			
 			sesion.setAttribute("reid", reid);
 			
